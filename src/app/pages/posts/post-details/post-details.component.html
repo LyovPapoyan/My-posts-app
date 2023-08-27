@@ -1,0 +1,22 @@
+<div *ngIf="post$ | async as post; else loading">
+  <h1 class="title">Детали Поста</h1>
+
+  <nz-card [nzTitle]="'Идентификатор поста - ' + post.id">
+    <p>
+      Название - <span class="text">{{ post.title }}</span>
+    </p>
+    <p>
+      Описание - <span class="text">{{ post.body }}</span>
+    </p>
+  </nz-card>
+
+  <div class="back">
+    <button nz-button nzType="primary" routerLink="/posts">
+      Вернуться к постам
+    </button>
+  </div>
+</div>
+
+<ng-template #loading>
+    <h1>Загрузка...</h1>
+</ng-template>

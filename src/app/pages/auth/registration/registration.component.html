@@ -1,0 +1,66 @@
+<div class="register-form_wrapper">
+    <h1 class="register-form_title">Регистрация </h1>
+    <form
+      nz-form
+      autocomplete="off"
+      [formGroup]="registrationForm"
+      nzLayout="vertical"
+    >
+      <nz-form-item>
+        <nz-form-label nzFor="userName">Имя Пользователя</nz-form-label>
+        <nz-form-control  nzErrorTip="Пожалуйста, введите  имя пользователя!">
+          <nz-input-group nzPrefixIcon="user">
+            <input
+              type="text"
+              id="userName"
+              nz-input
+              nzSize="large"
+              formControlName="userName"
+              placeholder="введите  имя пользователя!"
+            />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label nzFor="userName" nzFor="pass">Пароль</nz-form-label>
+        <nz-form-control [nzErrorTip]="passwordErrors">
+          <nz-input-group nzPrefixIcon="lock" [nzSuffix]="eyeTemplate">
+            <input
+              [type]="passwordVisible ? 'text' : 'password'"
+              id="pass"
+              nz-input
+              nzSize="large"
+              formControlName="password"
+              placeholder="введите ваш пароль"
+            />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+  
+      <button
+        nz-button
+        class="register-form_button"
+        [nzType]="'primary'"
+        [disabled]="registrationForm.invalid"
+        (click)="onSubmit()"
+      >
+      Зарегистрироваться  
+      </button>
+    </form>
+  </div>
+
+  <ng-template #eyeTemplate>
+    <span
+      class="icon"
+      nz-icon
+      [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+      (click)="passwordVisible = !passwordVisible"
+    ></span>
+  </ng-template>
+
+  <ng-template #passwordErrors let-control>
+    <ng-container *ngIf="control.hasError('minlength')">Минимальная длина пароля 6 символов</ng-container>
+    <ng-container *ngIf="control.hasError('required')">Пожалуйста введите ваш пароль!</ng-container>
+  </ng-template>
+  

@@ -1,0 +1,16 @@
+.card {
+    height: 170px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+
+    .card-subtitle {
+        text-align: center;
+        font-weight: 500;
+    }
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}

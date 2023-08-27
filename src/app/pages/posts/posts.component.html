@@ -1,0 +1,17 @@
+<div *ngIf="posts$ | async as posts; else loading">
+  <h1 class="title">Список Постов</h1>
+
+  <nz-list nzGrid>
+    <div nz-row [nzGutter]="16">
+      <div nz-col [nzSpan]="6" *ngFor="let post of posts">
+        <nz-list-item>
+          <app-post-card [post]="post"></app-post-card>
+        </nz-list-item>
+      </div>
+    </div>
+  </nz-list>
+</div>
+
+<ng-template #loading>
+  <h1>Загрузка...</h1>
+</ng-template>

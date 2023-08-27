@@ -1,0 +1,24 @@
+<div class="toolbar">
+  <h1 class="title" routerLink="/posts">Posts App</h1>
+  <button
+    nz-button
+    nzSize="large"
+    nzGhost
+    routerLink="/login"
+    (click)="logOut()"
+    *ngIf="isAuthenticated; else noAuthenticated"
+  >
+    Выйти
+  </button>
+
+  <ng-template #noAuthenticated>
+    <div class="auth-buttons">
+      <button nz-button nzSize="large" nzGhost routerLink="/login">
+        Войти
+      </button>
+      <button nz-button nzSize="large" nzGhost routerLink="/registration">
+        Зарегистрироваться
+      </button>
+    </div>
+  </ng-template>
+</div>

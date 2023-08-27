@@ -1,0 +1,17 @@
+.toolbar {
+  background-color: #1928aa;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .title {
+    color: white;
+    cursor: pointer;
+  }
+
+  .auth-buttons {
+    display: flex;
+    gap: 15px;
+  }
+}
